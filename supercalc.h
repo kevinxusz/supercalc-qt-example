@@ -14,9 +14,9 @@ class SuperCalc : public QMainWindow
 public:
     explicit SuperCalc(QWidget *parent = 0);
     ~SuperCalc();
-
 private:
     Ui::SuperCalc *ui;
+    void do_connections();
 };
 
 #endif // SUPERCALC_H
