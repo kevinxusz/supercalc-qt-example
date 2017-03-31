@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         supercalc.cpp
 
-HEADERS  += supercalc.h
+HEADERS  += supercalc.h \
+    supercalcplugin.h
 
 FORMS    += supercalc.ui
