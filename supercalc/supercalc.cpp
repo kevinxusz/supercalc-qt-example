@@ -85,7 +85,7 @@ void SuperCalc::load_builtin_operations()
 
 void SuperCalc::load_plugins()
 {
-    static const QDir::Filters exec = QDir::Files | QDir::Readable | QDir::Executable;
+    static const QDir::Filters exec = QDir::Files | QDir::Readable;
 
     QDirIterator it { QApplication::applicationDirPath(), exec };
 
