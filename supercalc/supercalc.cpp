@@ -1,10 +1,12 @@
 #include <QApplication>
 #include <QDirIterator>
+#include <QMessageBox>
 #include <QDebug>
 #include <QLibrary>
 #include <QWidget>
 #include <QAction>
 #include <QComboBox>
+#include <QCloseEvent>
 #include "supercalc.h"
 #include "ui_supercalc.h"
 
@@ -115,4 +117,18 @@ void SuperCalc::add_operation(std::unique_ptr<SuperCalcPlugin> plugin)
 {
     ui->combo_operation->addItem(plugin->get_name().c_str());
     plugins.push_back(std::move(plugin));
+}
+
+void SuperCalc::closeEvent(QCloseEvent *ce)
+{
+    QMessageBox msg {};
+    msg.setText("Quitter?");
+    msg.setInformativeText("Voulez-vous vraiment quitter???");
+    msg.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+    msg.setDefaultButton(QMessageBox::Ok);
+    int ret = msg.exec();
+    if (ret == QMessageBox::Ok)
+        ce->accept();
+    else
+        ce->ignore();
 }

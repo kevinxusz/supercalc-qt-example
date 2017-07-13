@@ -36,6 +36,7 @@ private:
     void try_load_library(const QString &file);
     void clear_operations();
     void add_operation(std::unique_ptr<SuperCalcPlugin> plugin);
+    void closeEvent(QCloseEvent *ce) override;
 };
 
 #endif // SUPERCALC_H
